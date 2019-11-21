@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Rock_Paper_Scissors_Lizard_Spock
 {
-    class Game
+    public class Game
     { 
        //what info/data/variables does a game require to be played
         Player player1;
@@ -73,7 +73,7 @@ namespace Rock_Paper_Scissors_Lizard_Spock
 
             Console.WriteLine("Spock vaporizes Rock");
 
-            Console.WriteLine("the rules");
+            Console.WriteLine("Same gesture by both players results in a tie.");
 
 
 

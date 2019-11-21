@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Rock_Paper_Scissors_Lizard_Spock
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
