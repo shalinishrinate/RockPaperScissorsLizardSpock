@@ -6,29 +6,35 @@ using System.Threading.Tasks;
 
 namespace Rock_Paper_Scissors_Lizard_Spock
 {
-    public class Player
+    public abstract class Player
     {
-        // public string gesture;
+        public string gesture;
 
-        List<string> gestures = new List<string>() { "Rock", "Paper", "Scissors", "Lizard", "Spock" };
+        public List<string> gestures = new List<string>() { "Rock", "Paper", "Scissors", "Lizard", "Spock" };
 
+        public string name;
+        public int score;
+       
+        public void DisplayChoices()
+        {
             foreach (string gesture in gestures)
             {
                 Console.WriteLine(gesture);
             }
-}
-public void pickGesture()
-{
+        }
+        public abstract void GetName();
+        
 
-}
-public void compareGestures()
-{
 
-}
-public void pickWinnter()
-{
 
+    // string name
+    //string gesture
+
+
+    //abstract void chooseGesture()
+
+    //abstract void chooseName()
 }
+
 
     }
-}
