@@ -18,7 +18,7 @@ namespace Rock_Paper_Scissors_Lizard_Spock
         {
             Random rnd = new Random();
             string randomgestures = gestures[rnd.Next(gestures.Count)];
-            Console.WriteLine(name + "chose" + randomgestures);
+            Console.WriteLine(name + " chose " + randomgestures);
             Console.WriteLine("Please press Enter key.");
         }
 

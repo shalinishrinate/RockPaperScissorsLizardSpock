@@ -13,17 +13,15 @@ namespace Rock_Paper_Scissors_Lizard_Spock
             Console.WriteLine("Please type your name.");
             name = Console.ReadLine();
             Console.WriteLine();
-            Console.WriteLine("Hello " + name + " Welcome to the Rock Paper Scissors Lizard Spock game.");
+            Console.WriteLine("Hello " + name + " , welcome to the Rock Paper Scissors Lizard Spock game.");
             Console.WriteLine("Please press the Enter key to continue.");
             Console.ReadLine();
-            
-
+           
         }
         
-
         public override void ChooseGesture()
         {
-            Console.WriteLine(name + " What gesture do you choose?Please type in the number " +
+            Console.WriteLine(name + " , what gesture do you choose to play? Please type in the number " +
                                       "displayed next to the gesture of your choice \n" +
                                        "1. Rock \n" +
                                        "2. Paper \n" +
@@ -38,7 +36,7 @@ namespace Rock_Paper_Scissors_Lizard_Spock
             switch (input)
             {
                 case "1":
-                    gesture = "You chose Rock.";
+                    gesture = name + "," + " You chose Rock.";
                     break;
                 case "2":
                     gesture = "You chose Paper.";

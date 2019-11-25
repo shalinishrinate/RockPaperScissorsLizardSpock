@@ -32,21 +32,30 @@ namespace Rock_Paper_Scissors_Lizard_Spock
             CompareGestures();
             Console.ReadLine();
 
+            IncrementWinnerScore();
+            Console.ReadLine();
+
+            LoopGame();
+
+            DecidingTheGameWinner();
+
+            PlayAnotherGame();
+
         }
 
         public void DisplayRulesOfTheGame()
         {
-            Console.WriteLine("As Sheldon from Big Bang Theory famously said..");
+            Console.WriteLine("As SHELDON from BIG BANG THEORY famously said..");
 
-            Console.WriteLine(); //this and the following ones are just to give spacebetween 2 lines, for better readablity.
+            Console.WriteLine(); //this and the following ones are just to give space between 2 lines, for better readablity.
 
-            Console.WriteLine("\"For the record, it could kill us to meet new people\n " +
-                              "They could be murderers or the carriers of unusual pathogens.\n" +
+            Console.WriteLine("\"For the record, IT COULD KILL US TO MEET NEW PEOPLE.\n" +
+                              "They could be MURDERERS or the CARRIERS of unusual PATHOGENS.\n" +
                                "And I'm not insane, my mother had me tested.\" ");
 
             Console.WriteLine();
 
-            Console.WriteLine("So lets not meet people, but play ROCK PAPER SCISSORS LIZARD SPOCK online!");
+            Console.WriteLine("So lets not meet people! But play ROCK PAPER SCISSORS LIZARD SPOCK online!");
 
             Console.WriteLine();
 
@@ -62,10 +71,10 @@ namespace Rock_Paper_Scissors_Lizard_Spock
 
             Console.WriteLine();
 
-            Console.WriteLine("Rock crushes Scissors \n Scissors cuts Paper \n Paper covers Rock " +
-                " \n Rock crushes Lizard \n Lizard poisons Spock \n Spock smashes Scissors" +
-                " \n Spock smashes Scissors \n Scissors decapitates Lizard \n Lizard eats Paper" +
-                " \nPaper disproves Spock \n Spock vaporizes Rock");
+            Console.WriteLine("Scissors cuts Paper \n Paper covers Rock \n Rock crushes Lizard " +
+                " \n Lizard poisons Spock \n Spock smashes Scissors \n Scissors decapitates Lizard" +
+                " \n Lizard eats Paper \n Paper disproves Spock \n Spock vaporizes Rock" +
+                " \n (and as it always has) Rock crushes Scissors");
 
             Console.WriteLine();
 
@@ -87,8 +96,6 @@ namespace Rock_Paper_Scissors_Lizard_Spock
 
             string numberOfPlayers = Console.ReadLine();
 
-
-
             if (numberOfPlayers == "1" || numberOfPlayers == "2")
             {
                 CreatePlayers(numberOfPlayers);
@@ -106,7 +113,6 @@ namespace Rock_Paper_Scissors_Lizard_Spock
                     default:
                         Console.WriteLine("Please type in either 1 or 2, or exit the game by typing quit.");
                         Console.WriteLine(); // this will give the player an option to type in again
-                        GetNumberPlayers();
                         break;
                 }
             }
@@ -142,34 +148,85 @@ namespace Rock_Paper_Scissors_Lizard_Spock
 
             else if (player1.gesture == "Rock" && (player2.gesture == "Scissors" || player2.gesture == "Lizard"))
             {
-                Console.WriteLine(player1.name + "Wins!");
+                Console.WriteLine(player1.name + " Wins!");
             }
 
             else if (player1.gesture == "Paper" && (player2.gesture == "Rock" || player2.gesture == "Spock"))
             {
-                Console.WriteLine(player1.name + "Wins!");
+                Console.WriteLine(player1.name + " Wins!");
             }
 
             else if (player1.gesture == "Scissors" && (player2.gesture == "Paper" || player2.gesture == "Lizard"))
             {
-                Console.WriteLine(player1.name + "Wins!");
+                Console.WriteLine(player1.name + " Wins!");
             }
 
             else if (player1.gesture == "Lizard" && (player2.gesture == "Spock" || player2.gesture == "Paper"))
             {
-                Console.WriteLine(player1.name + "Wins!");
+                Console.WriteLine(player1.name + " Wins!");
             }
 
             else if (player1.gesture == "Spock" && (player2.gesture == "Rock" || player2.gesture == "Scissors"))
             {
-                Console.WriteLine(player1.name + "Wins!");
+                Console.WriteLine(player1.name + " Wins!");
             }
 
             else
             {
-                Console.WriteLine(player2.name + "Wins!");
+                Console.WriteLine(player2.name + " Wins!");
             }
 
         }
+
+        public void IncrementWinnerScore()
+        {
+            Console.WriteLine("The current scores are: \n" + player1.name + " : " + player1.score + "\n" + player2.name + " : " + player2.score);
+        }
+        public void LoopGame()
+        {
+            while (true)
+            {
+                if (player1.score == 2 || player2.score == 2)
+                {
+                    break;
+                }
+                else
+                {
+                    RunGame();
+                }
+            }
+        }
+        public void DecidingTheGameWinner()
+        {
+            if (player1.score == 2)
+            {
+                Console.WriteLine("Congratulations " + player1.name + ", you are the WINNER!");
+                Console.WriteLine();
+
+            }
+            else if (player2.score == 2) // for a long time could not understand why 'else' wasnt working, then realised there is a condition and then changed to else if.
+            {
+                Console.WriteLine("Congratulations " + player2.name + ", you are the WINNER!");
+                Console.WriteLine();
+            }
+        }
+
+        public void PlayAnotherGame()
+        {
+            Console.WriteLine("Thank you for playing ROCK PAPER SCISSORS LIZARD SPOCK! Press 1 to quit, or press any key to play again!");
+            string input = Console.ReadLine();
+            switch (input)
+            {
+                case "1":
+                    Console.WriteLine("See you soon!");
+                    Console.ReadLine();
+                    Environment.Exit(0);
+                    break;
+                default:
+                    Console.WriteLine("");
+                    RunGame();
+                    break;
+            }
+        }
     }
-    }
+}
