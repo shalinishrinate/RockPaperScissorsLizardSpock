@@ -43,6 +43,29 @@ namespace Rock_Paper_Scissors_Lizard_Spock
 
         }
 
+        public void RunAnotherRoundOfGame() // had to do this for rounds after round 1, so that it does not repeat from name choosing etc.
+        {
+            player1.ChooseGesture();
+            Console.ReadLine();
+            Console.Clear();
+
+            player2.ChooseGesture();
+            Console.ReadLine();
+            Console.Clear();
+
+            CompareGestures();
+            Console.ReadLine();
+
+            IncrementWinnerScore();
+            Console.ReadLine();
+
+            LoopGame();
+
+            DecidingTheGameWinner();
+
+            PlayAnotherGame();
+        }
+
         public void DisplayRulesOfTheGame()
         {
             Console.WriteLine("As SHELDON from BIG BANG THEORY famously said..");
@@ -149,31 +172,37 @@ namespace Rock_Paper_Scissors_Lizard_Spock
             else if (player1.gesture == "Rock" && (player2.gesture == "Scissors" || player2.gesture == "Lizard"))
             {
                 Console.WriteLine(player1.name + " Wins!");
+                player1.score++;
             }
 
             else if (player1.gesture == "Paper" && (player2.gesture == "Rock" || player2.gesture == "Spock"))
             {
                 Console.WriteLine(player1.name + " Wins!");
+                player1.score++;
             }
 
             else if (player1.gesture == "Scissors" && (player2.gesture == "Paper" || player2.gesture == "Lizard"))
             {
                 Console.WriteLine(player1.name + " Wins!");
+                player1.score++;
             }
 
             else if (player1.gesture == "Lizard" && (player2.gesture == "Spock" || player2.gesture == "Paper"))
             {
                 Console.WriteLine(player1.name + " Wins!");
+                player1.score++;
             }
 
             else if (player1.gesture == "Spock" && (player2.gesture == "Rock" || player2.gesture == "Scissors"))
             {
                 Console.WriteLine(player1.name + " Wins!");
+                player1.score++;
             }
 
             else
             {
                 Console.WriteLine(player2.name + " Wins!");
+                player2.score++;
             }
 
         }
@@ -192,7 +221,7 @@ namespace Rock_Paper_Scissors_Lizard_Spock
                 }
                 else
                 {
-                    RunGame();
+                    RunAnotherRoundOfGame();
                 }
             }
         }

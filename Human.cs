@@ -36,19 +36,19 @@ namespace Rock_Paper_Scissors_Lizard_Spock
             switch (input)
             {
                 case "1":
-                    gesture = name + "," + " You chose Rock.";
+                    gesture = "Rock";
                     break;
                 case "2":
-                    gesture = "You chose Paper.";
+                    gesture = "Paper";
                     break;
                 case "3":
-                    gesture = " You chose Scissors.";
+                    gesture = "Scissors";
                     break;
                 case "4":
-                    gesture = "You chose Spock.";
+                    gesture = "Spock";
                     break;
                 case "5":
-                    gesture = "You chose Lizard.";
+                    gesture = "Lizard";
                     break;
                 case "quit":
                     Console.WriteLine("Sorry to see you go, hoping you will be back soon!");

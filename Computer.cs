@@ -17,8 +17,8 @@ namespace Rock_Paper_Scissors_Lizard_Spock
         public override void ChooseGesture()
         {
             Random rnd = new Random();
-            string randomgestures = gestures[rnd.Next(gestures.Count)];
-            Console.WriteLine(name + " chose " + randomgestures);
+            gesture = gestures[rnd.Next(gestures.Count)];
+            Console.WriteLine(name + " chose " + gesture);
             Console.WriteLine("Please press Enter key.");
         }
 
