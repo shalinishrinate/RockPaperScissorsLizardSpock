@@ -8,33 +8,25 @@ namespace Rock_Paper_Scissors_Lizard_Spock
 {
     public abstract class Player
     {
+        //member variables
+        public string name;
         public string gesture;
+        public int score;
 
         public List<string> gestures = new List<string>() { "Rock", "Paper", "Scissors", "Lizard", "Spock" };
-
-        public string name;
-        public int score;
-       
-        public void DisplayChoices()
+        
+        //constructor
+        public Player() 
         {
-            foreach (string gesture in gestures)
-            {
-                Console.WriteLine(gesture);
-            }
+            score = 0;
         }
-        public abstract void GetName();
+
+        //methods
+        public abstract void ChooseName();
+
+        public abstract void ChooseGesture();
         
 
-
-
-    // string name
-    //string gesture
-
-
-    //abstract void chooseGesture()
-
-    //abstract void chooseName()
-}
-
-
     }
+
+}

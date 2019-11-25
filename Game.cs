@@ -18,6 +18,20 @@ namespace Rock_Paper_Scissors_Lizard_Spock
             string input = GetNumberPlayers();
             CreatePlayers(input);
 
+            player1.ChooseName();
+            player2.ChooseName();
+
+            player1.ChooseGesture();
+            Console.ReadLine();
+            Console.Clear();//to show that player2 is not making his choice based on player1's choice.
+
+            player2.ChooseGesture();
+            Console.ReadLine();
+            Console.Clear();
+
+            CompareGestures();
+            Console.ReadLine();
+
         }
 
         public void DisplayRulesOfTheGame()
@@ -73,6 +87,8 @@ namespace Rock_Paper_Scissors_Lizard_Spock
 
             string numberOfPlayers = Console.ReadLine();
 
+
+
             if (numberOfPlayers == "1" || numberOfPlayers == "2")
             {
                 CreatePlayers(numberOfPlayers);
@@ -85,7 +101,7 @@ namespace Rock_Paper_Scissors_Lizard_Spock
                     case "quit":
                         Console.WriteLine("Sorry to see you go, hoping you will be back soon!");
                         Environment.Exit(0);  // did a search on how to quit and on stackoverflow it was suggested Environment.Exit(0) 
-                        break; 
+                        break;
 
                     default:
                         Console.WriteLine("Please type in either 1 or 2, or exit the game by typing quit.");
@@ -112,10 +128,48 @@ namespace Rock_Paper_Scissors_Lizard_Spock
                 player2 = new Human();
             }
 
+        }
 
-        
+        public void CompareGestures()
+        {
+            Console.WriteLine(player1.gesture);
+            Console.WriteLine(player2.gesture);
 
+            if (player1.gesture == player2.gesture)
+            {
+                Console.WriteLine("It is a tie, replay this round again");
+            }
+
+            else if (player1.gesture == "Rock" && (player2.gesture == "Scissors" || player2.gesture == "Lizard"))
+            {
+                Console.WriteLine(player1.name + "Wins!");
+            }
+
+            else if (player1.gesture == "Paper" && (player2.gesture == "Rock" || player2.gesture == "Spock"))
+            {
+                Console.WriteLine(player1.name + "Wins!");
+            }
+
+            else if (player1.gesture == "Scissors" && (player2.gesture == "Paper" || player2.gesture == "Lizard"))
+            {
+                Console.WriteLine(player1.name + "Wins!");
+            }
+
+            else if (player1.gesture == "Lizard" && (player2.gesture == "Spock" || player2.gesture == "Paper"))
+            {
+                Console.WriteLine(player1.name + "Wins!");
+            }
+
+            else if (player1.gesture == "Spock" && (player2.gesture == "Rock" || player2.gesture == "Scissors"))
+            {
+                Console.WriteLine(player1.name + "Wins!");
+            }
+
+            else
+            {
+                Console.WriteLine(player2.name + "Wins!");
+            }
 
         }
     }
-}
+    }

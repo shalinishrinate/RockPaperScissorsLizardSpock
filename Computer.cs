@@ -9,23 +9,17 @@ namespace Rock_Paper_Scissors_Lizard_Spock
     public class Computer : Player
     {
 
-        // public override void ChooseGesture()
-        //{  //random , turning them }
-        public override void GetName()
+        public override void ChooseName()
         {
             name = "Computer";
         }
 
-        //public int RandomNumber(int min, int max)
-        //{
-        //    Random random = new Random();
-        //    string randomgesture =  random.Next(1, 6);
-        //}
-        public void GestureChoice(string input)
-    {
+        public override void ChooseGesture()
+        {
             Random rnd = new Random();
             string randomgestures = gestures[rnd.Next(gestures.Count)];
-            Console.WriteLine(randomgestures);
+            Console.WriteLine(name + "chose" + randomgestures);
+            Console.WriteLine("Please press Enter key.");
         }
 
     }
